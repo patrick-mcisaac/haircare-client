@@ -17,42 +17,35 @@ export default function NavItems({
 }: NavItemProps) {
     return (
         <ul className={`${ulClass} nav tracking-widest md:flex-row`}>
-            {localStorage.getItem("Project_Name") ?
-                <>
-                    <Link
-                        onClick={() => setIsVisible(false)}
-                        className={`${linkClass}`}
-                        href={"/"}
-                    >
-                        <li>Home</li>
-                    </Link>
-                    <Link
-                        className={`${linkClass} md:mr-10 md:ml-auto`}
-                        href={"/login"}
-                        onClick={() => {
-                            localStorage.removeItem("Project_Name")
-                            setIsVisible(false)
-                        }}
-                    >
-                        <li>Logout</li>
-                    </Link>
-                    {/* Use same height as Link */}
-                    <li
-                        onClick={() => setIsVisible(false)}
-                        className="flex h-15 w-screen items-center justify-center hover:cursor-pointer md:hidden"
-                    >
-                        <FontAwesomeIcon icon={faX} />
-                    </li>
-                </>
-            :   <Link
-                    onClick={() => setIsVisible(false)}
-                    className={`${linkClass}`}
-                    href={"/login"}
-                >
-                    <li>Login</li>
-                </Link>
-            }
+            <Link
+                onClick={() => setIsVisible(false)}
+                className={`${linkClass}`}
+                href={"/"}
+            >
+                <li>Home</li>
+            </Link>
+            <Link
+                onClick={() => setIsVisible(false)}
+                className={`${linkClass}`}
+                href={"/customers"}
+            >
+                <li>Customers</li>
+            </Link>
+            <Link
+                onClick={() => setIsVisible(false)}
+                className={`${linkClass}`}
+                href={"/appointments"}
+            >
+                <li>Appointments</li>
+            </Link>
+
+            {/* Use same height as Link */}
+            <li
+                onClick={() => setIsVisible(false)}
+                className="flex h-15 w-screen items-center justify-center hover:cursor-pointer md:hidden"
+            >
+                <FontAwesomeIcon icon={faX} />
+            </li>
         </ul>
     )
 }
-
